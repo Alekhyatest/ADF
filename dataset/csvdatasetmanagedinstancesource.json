@@ -1,0 +1,29 @@
+{
+	"name": "csvdatasetmanagedinstancesource",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LSmanagedinstancedelimtedsource",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "FileServerLocation",
+				"fileName": "Neenucasetestsource.csv"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

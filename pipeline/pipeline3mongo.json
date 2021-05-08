@@ -1,0 +1,53 @@
+{
+	"name": "pipeline3mongo",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "CosmosDbMongoDbApiSink",
+						"writeBatchTimeout": "00:30:00",
+						"writeBehavior": "upsert"
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "blobtocosmostest",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "CosmosDbMongoDbApiCollection1",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2020-02-11T19:02:56Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

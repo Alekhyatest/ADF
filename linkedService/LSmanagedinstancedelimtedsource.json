@@ -1,0 +1,18 @@
+{
+	"name": "LSmanagedinstancedelimtedsource",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"description": "LSmanagedinstancedelimtedsource",
+		"annotations": [],
+		"type": "FileServer",
+		"typeProperties": {
+			"host": "C:\\Users\\m1045120\\Desktop",
+			"userId": "mindtree\\m1045120",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJlOTZkZDc5MC0zMzk1LTQ4ZmEtYmIwZC00NWRhNTRkNDRiZWQiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "integrationRuntime3",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

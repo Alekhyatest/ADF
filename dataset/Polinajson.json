@@ -1,0 +1,98 @@
+{
+	"name": "Polinajson",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "blobLS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "polinasample1.json",
+				"container": "containerone"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"records": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"LEI": {
+								"type": "object",
+								"properties": {
+									"$": {
+										"type": "string"
+									}
+								}
+							},
+							"Entity": {
+								"type": "object",
+								"properties": {
+									"LegalName": {
+										"type": "object",
+										"properties": {
+											"$": {
+												"type": "string"
+											}
+										}
+									},
+									"LegalAddress": {
+										"type": "object",
+										"properties": {
+											"FirstAddressLine": {
+												"type": "object",
+												"properties": {
+													"$": {
+														"type": "string"
+													}
+												}
+											},
+											"City": {
+												"type": "object",
+												"properties": {
+													"$": {
+														"type": "string"
+													}
+												}
+											},
+											"Region": {
+												"type": "object",
+												"properties": {
+													"$": {
+														"type": "string"
+													}
+												}
+											},
+											"Country": {
+												"type": "object",
+												"properties": {
+													"$": {
+														"type": "string"
+													}
+												}
+											},
+											"PostalCode": {
+												"type": "object",
+												"properties": {
+													"$": {
+														"type": "string"
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

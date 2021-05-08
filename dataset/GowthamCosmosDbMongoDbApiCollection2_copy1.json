@@ -1,0 +1,16 @@
+{
+	"name": "GowthamCosmosDbMongoDbApiCollection2_copy1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "CosmosDbMongoDbApi1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "CosmosDbMongoDbApiCollection",
+		"schema": [],
+		"typeProperties": {
+			"collection": "alexcol"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
