@@ -13,8 +13,12 @@
 				}
 			],
 			"sinks": [],
-			"transformations": [],
-			"script": "source(output(\n\t\t{movie,title,genres,year,Rating,Rotton Tomato} as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> MoviesDB"
+			"transformations": [
+				{
+					"name": "FilterYears"
+				}
+			],
+			"script": "source(output(\n\t\t{movie,title,genres,year,Rating,Rotton Tomato} as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> MoviesDB\nMoviesDB filter(ERROR_FUNCTION('')) ~> FilterYears"
 		}
 	}
 }
