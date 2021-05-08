@@ -10,7 +10,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileSystem": "output"
+				"fileName": "MoviesDB - Copy.csv",
+				"fileSystem": "output1"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
