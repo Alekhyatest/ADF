@@ -1,0 +1,235 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "adfv2first"
+		},
+		"ADLSGEN2LS_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ADLSGEN2LS'"
+		},
+		"AzureBlobStorage1sink_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1sink'"
+		},
+		"AzureSqlMI1sink_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSqlMI1sink'"
+		},
+		"CosmosDb1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'CosmosDb1'"
+		},
+		"CosmosDb2LSSQLAPI_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'CosmosDb2LSSQLAPI'"
+		},
+		"CosmosDbMongoDbApi1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'CosmosDbMongoDbApi1'"
+		},
+		"CosmosDbMongoDbApi2_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'CosmosDbMongoDbApi2'"
+		},
+		"CosmosDbMongoDbshaLS_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'CosmosDbMongoDbshaLS'"
+		},
+		"CosmosDbMongoDbtomongo_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'CosmosDbMongoDbtomongo'"
+		},
+		"LSmanagedinstancedelimtedsource_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LSmanagedinstancedelimtedsource'"
+		},
+		"blobLS_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'blobLS'"
+		},
+		"sqllinkedservice_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'sqllinkedservice'"
+		},
+		"ADLSGEN2LS_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsgen2alex.dfs.core.windows.net"
+		},
+		"CosmosDbMongoDbApi1_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "gowthamdb"
+		},
+		"CosmosDbMongoDbApi2_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "newdb"
+		},
+		"CosmosDbMongoDbshaLS_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "shadb"
+		},
+		"CosmosDbMongoDbtomongo_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "testdb1"
+		},
+		"LSmanagedinstancedelimtedsource_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "C:\\Users\\m1045120\\Desktop"
+		},
+		"LSmanagedinstancedelimtedsource_properties_typeProperties_userId": {
+			"type": "string",
+			"defaultValue": "mindtree\\m1045120"
+		},
+		"ssisirtest1_properties_typeProperties_ssisProperties_catalogInfo_catalogServerEndpoint": {
+			"type": "string",
+			"defaultValue": "alex1sqlserver.database.windows.net"
+		},
+		"ssisirtest1_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminUserName": {
+			"type": "string",
+			"defaultValue": "alex"
+		},
+		"ssisirtest1_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminPassword": {
+			"type": "secureString"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "adfv2first_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"ADLSGEN2LS_accountKey": {
+						"value": "[parameters('ADLSGEN2LS_accountKey')]"
+					},
+					"AzureBlobStorage1sink_connectionString": {
+						"value": "[parameters('AzureBlobStorage1sink_connectionString')]"
+					},
+					"AzureSqlMI1sink_connectionString": {
+						"value": "[parameters('AzureSqlMI1sink_connectionString')]"
+					},
+					"CosmosDb1_connectionString": {
+						"value": "[parameters('CosmosDb1_connectionString')]"
+					},
+					"CosmosDb2LSSQLAPI_connectionString": {
+						"value": "[parameters('CosmosDb2LSSQLAPI_connectionString')]"
+					},
+					"CosmosDbMongoDbApi1_connectionString": {
+						"value": "[parameters('CosmosDbMongoDbApi1_connectionString')]"
+					},
+					"CosmosDbMongoDbApi2_connectionString": {
+						"value": "[parameters('CosmosDbMongoDbApi2_connectionString')]"
+					},
+					"CosmosDbMongoDbshaLS_connectionString": {
+						"value": "[parameters('CosmosDbMongoDbshaLS_connectionString')]"
+					},
+					"CosmosDbMongoDbtomongo_connectionString": {
+						"value": "[parameters('CosmosDbMongoDbtomongo_connectionString')]"
+					},
+					"blobLS_connectionString": {
+						"value": "[parameters('blobLS_connectionString')]"
+					},
+					"sqllinkedservice_connectionString": {
+						"value": "[parameters('sqllinkedservice_connectionString')]"
+					},
+					"ADLSGEN2LS_properties_typeProperties_url": {
+						"value": "[parameters('ADLSGEN2LS_properties_typeProperties_url')]"
+					},
+					"CosmosDbMongoDbApi1_properties_typeProperties_database": {
+						"value": "[parameters('CosmosDbMongoDbApi1_properties_typeProperties_database')]"
+					},
+					"CosmosDbMongoDbApi2_properties_typeProperties_database": {
+						"value": "[parameters('CosmosDbMongoDbApi2_properties_typeProperties_database')]"
+					},
+					"CosmosDbMongoDbshaLS_properties_typeProperties_database": {
+						"value": "[parameters('CosmosDbMongoDbshaLS_properties_typeProperties_database')]"
+					},
+					"CosmosDbMongoDbtomongo_properties_typeProperties_database": {
+						"value": "[parameters('CosmosDbMongoDbtomongo_properties_typeProperties_database')]"
+					},
+					"ssisirtest1_properties_typeProperties_ssisProperties_catalogInfo_catalogServerEndpoint": {
+						"value": "[parameters('ssisirtest1_properties_typeProperties_ssisProperties_catalogInfo_catalogServerEndpoint')]"
+					},
+					"ssisirtest1_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminUserName": {
+						"value": "[parameters('ssisirtest1_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminUserName')]"
+					},
+					"ssisirtest1_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminPassword": {
+						"value": "[parameters('ssisirtest1_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminPassword')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "adfv2first_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"LSmanagedinstancedelimtedsource_password": {
+						"value": "[parameters('LSmanagedinstancedelimtedsource_password')]"
+					},
+					"LSmanagedinstancedelimtedsource_properties_typeProperties_host": {
+						"value": "[parameters('LSmanagedinstancedelimtedsource_properties_typeProperties_host')]"
+					},
+					"LSmanagedinstancedelimtedsource_properties_typeProperties_userId": {
+						"value": "[parameters('LSmanagedinstancedelimtedsource_properties_typeProperties_userId')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'adfv2first_ArmTemplate_0')]"
+			]
+		},
+		{
+			"name": "adfv2first_ArmTemplate_2",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_2.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'adfv2first_ArmTemplate_1')]"
+			]
+		}
+	]
+}
