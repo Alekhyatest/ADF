@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "MoviesDB.csv",
+				"fileName": "withnulloutput.txt",
 				"fileSystem": "container1"
 			},
 			"columnDelimiter": ",",
@@ -20,27 +20,15 @@
 		},
 		"schema": [
 			{
-				"name": "movie",
+				"name": "Name",
 				"type": "String"
 			},
 			{
-				"name": "title",
+				"name": "ID",
 				"type": "String"
 			},
 			{
-				"name": "genres",
-				"type": "String"
-			},
-			{
-				"name": "year",
-				"type": "String"
-			},
-			{
-				"name": "Rating",
-				"type": "String"
-			},
-			{
-				"name": "Rotton Tomato",
+				"name": "Type",
 				"type": "String"
 			}
 		]
