@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "withnulloutput.txt",
+				"fileName": "withoutnulloutput.txt",
 				"fileSystem": "container1"
 			},
 			"columnDelimiter": ",",
