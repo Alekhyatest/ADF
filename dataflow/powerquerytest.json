@@ -6,7 +6,7 @@
 			"sources": [
 				{
 					"name": "ADLSGen2DS",
-					"script": "source(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~>  ADLSGen2DS",
+					"script": "source(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> ADLSGen2DS",
 					"dataset": {
 						"referenceName": "ADLSGen2DS",
 						"type": "DatasetReference"
