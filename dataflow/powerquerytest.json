@@ -1,0 +1,20 @@
+{
+	"name": "powerquerytest",
+	"properties": {
+		"type": "WranglingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"name": "ADLSGen2DS",
+					"script": "source(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> ADLSGen2DS",
+					"dataset": {
+						"referenceName": "ADLSGen2DS",
+						"type": "DatasetReference"
+					}
+				}
+			],
+			"sinks": [],
+			"script": "section Section1;\r\nshared ADLSGen2DS = let\r\n  AdfDoc = AzureStorage.DataLakeContents(\"https://adlsgen2alex.dfs.core.windows.net/container1/MoviesDB.csv\"),\r\n  Csv = Csv.Document(AdfDoc, [Delimiter = \",\", Encoding = TextEncoding.Utf8, QuoteStyle = QuoteStyle.Csv]),\r\n  PromotedHeaders = Table.PromoteHeaders(Csv, [PromoteAllScalars = true])\r\nin\r\n  PromotedHeaders;\r\nshared UserQuery = let\r\n  Source = ADLSGen2DS\r\nin\r\n  Source;\r\n"
+		}
+	}
+}

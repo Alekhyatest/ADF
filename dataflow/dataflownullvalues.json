@@ -1,0 +1,39 @@
+{
+	"name": "dataflownullvalues",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "ADLSGen2DS",
+						"type": "DatasetReference"
+					},
+					"name": "adlsgen2source"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "ADLSGen2DS",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				},
+				{
+					"dataset": {
+						"referenceName": "ADLSGen2DS",
+						"type": "DatasetReference"
+					},
+					"name": "sink2"
+				}
+			],
+			"transformations": [
+				{
+					"name": "ConditionalSplit1"
+				}
+			],
+			"script": "source(output(\n\t\tName as string,\n\t\tID as string,\n\t\tType as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> adlsgen2source\nadlsgen2source split(isNull(\"name\"),\n\tdisjoint: false) ~> ConditionalSplit1@(withoutnull, withnull)\nConditionalSplit1@withoutnull sink(allowSchemaDrift: false,\n\tvalidateSchema: false,\n\tinput(\n\t\tName as string,\n\t\tID as string,\n\t\tType as string\n\t),\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> sink1\nConditionalSplit1@withnull sink(allowSchemaDrift: false,\n\tvalidateSchema: false,\n\tinput(\n\t\tName as string,\n\t\tID as string,\n\t\tType as string\n\t),\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> sink2"
+		}
+	}
+}
